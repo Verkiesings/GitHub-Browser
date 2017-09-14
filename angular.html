@@ -1,0 +1,56 @@
+<html ng-app='myApp'>
+
+    <head>
+    <title ng-controller="Controller">{{title}}</title>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/maincss.css">
+         <script src="Js/jquery-3.2.1.js"></script>
+        <script src="Js/bootstrap.min.js"></script>
+        <script src="Js/angular.min.js"></script>
+        <script src="Js/index.js"></script>
+
+    </head>
+
+<body>
+
+<nav class="navbar navbar-default" ng-controller="Controller">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="cursor:pointer">{{webname}}</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="angular.html">Home</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div ng-controller="Controller" class="container">
+
+ <h3>{{searchTitle}}</h3>
+
+ <form>
+  <div class="form-group">
+      <input type="text" ng-model="repository" class="form-control" id="formGroupExampleInput" placeholder="Search" autocomplete="off">
+      <br />
+  </div>
+</form>
+
+<ul class="list-group">
+    <li  class="list-group-item" ng-repeat="event in events">
+      <a href="{{event.html_url}}" target="_blank"> {{event.name}} </a>
+    </li>
+</ul>
+
+</div>
+
+<footer class="navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <center><span>All rights reserved &copy </span></center>
+
+  </div>
+</footer>
+
+</body>
+
+</html>
