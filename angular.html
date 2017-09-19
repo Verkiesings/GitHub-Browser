@@ -2,18 +2,17 @@
 
     <head>
     <title ng-controller="Controller">{{title}}</title>
-
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/maincss.css">
          <script src="Js/jquery-3.2.1.js"></script>
         <script src="Js/bootstrap.min.js"></script>
         <script src="Js/angular.min.js"></script>
+        <script src="Js/angular-resource.js"></script>
+        <script src="Js/angular-route.js"></script>
+        <script src="Js/dirPagination.js"></script>
         <script src="Js/index.js"></script>
-
     </head>
 
 <body>
-
 <nav class="navbar navbar-default" ng-controller="Controller">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -26,7 +25,6 @@
 </nav>
 
 <div ng-controller="Controller" class="container">
-
  <h3>{{searchTitle}}</h3>
 
  <form>
@@ -36,17 +34,43 @@
   </div>
 </form>
 
-<ul class="list-group">
-    <li  class="list-group-item" ng-repeat="event in events">
-      <a href="{{event.html_url}}" target="_blank"> {{event.name}} </a>
-    </li>
-</ul>
-
+<div class="alert alert-success">
+<strong ng-model="total">{{total}}</strong>
 </div>
 
-<footer class="navbar-default navbar-fixed-bottom">
+<div class="col-xs-12 col-sm-6 col-md-6 text-center project" ng-repeat="event in events">
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h4><a style="text-decoration: none; cursor:pointer; color:rgba(0,0,0,.5)">{{event.name}}</a></h4> <br />
+  </div>
+  <br /> <br />
+  <p><strong style="color:rgba(0,0,0,.5);">Created At:</strong> {{event.created_at | date:'medium'}}</p>
+  <strong style="color:rgba(0,0,0,.5);"><p>Language : {{event.language}} </p></strong>
+  <br />
+  <a href="{{event.owner.html_url}}" target="_blank"><img ng-src="{{event.owner.avatar_url}}" class="img-thumbnail" width="200" height="200" ></img></a>
+  <br /><br />
+  <a  href="{{event.homepage}}" target="_blank" ng-model="homepage">{{homepage}}</a>
+  <br /><br />
+  <p><strong style="color:rgba(0,0,0,.5);">Updated At:</strong> {{event.updated_at | date:'medium'}}</p>
+  <a href="{{event.html_url}}" target="_blank" class="btn btn-info" role="button">Check out the repository</a>
+  <br /><br />
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+<br / > <br /><br / > <br />
+<footer style="background: rgba(0,0,0,.7);" class="navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
-    <center><span>All rights reserved &copy </span></center>
+    <center><span style="color: ghostwhite;">All rights reserved &copy 2017 </span></center>
 
   </div>
 </footer>

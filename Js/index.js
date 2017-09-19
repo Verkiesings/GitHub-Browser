@@ -4,7 +4,8 @@ angular.module('Services', [])
   var runUserRequest = function (repository) {
   return  $http ({
 
-      url: ("https://api.github.com/users/" + repository + "/repos")
+      url: ('https://api.github.com/search/repositories?q=' + '{' + repository + '}'+ '{&page,per_page,sort,order}')
+
     })
   }
     return {
@@ -26,17 +27,20 @@ app.controller('Controller', function($scope, $timeout , githubService) {
 
           timeout = $timeout(function() {
 
-            githubService.event(findRepo).success(function(data, status){
+              githubService.event(findRepo).success(function(data, status){
               console.log('success');
               console.log(data);
-              $scope.events = data;
+              $scope.events = data.items;
+              $scope.total = "Search results :  " + data.items.length + " repositories retrieved";
+              $scope.homepage = "Visit the Homepage";
+
             });
           }, 350)
         }
     });
     $scope.title = "GitHub";
-    $scope.searchTitle = "Search for a repository on GitHub";
+    $scope.searchTitle = "Search for a repository from GitHub";
     $scope.webname = "GitHub-Api";
-  
+
 
 })
