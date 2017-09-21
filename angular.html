@@ -51,6 +51,7 @@
   <p><strong style="color:rgba(0,0,0,.5);">Created At:</strong> {{event.created_at | date:'medium'}}</p>
   <strong style="color:rgba(0,0,0,.5);"><p>Language : {{event.language}} </p></strong>
   <br />
+
   <a href="{{event.owner.html_url}}" target="_blank"><img ng-src="{{event.owner.avatar_url}}" class="img-thumbnail" width="200" height="200" ></img></a>
   <br /><br />
   <a  href="{{event.homepage}}" target="_blank" ng-model="homepage">{{homepage}}</a>
@@ -61,11 +62,12 @@
 </div>
 </div>
 
-<center><dir-pagination-controls max-size="5" direction-links="true" boundary-links="false">
-</dir-pagination-controls> </center>
+
 
 </div>
 
+<center><dir-pagination-controls max-size="5" direction-links="true" boundary-links="false">
+</dir-pagination-controls> </center>
 
 
 
