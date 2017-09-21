@@ -1,4 +1,11 @@
 
+angular.module('try', [
+'angularUtils.directives.dirPagination',
+'ngResource',
+'ngRoute'
+
+]);
+
 angular.module('Services', [])
 .factory('githubService', function ($http) {
   var runUserRequest = function (repository) {
@@ -15,25 +22,23 @@ angular.module('Services', [])
     }
 });
 
-var app = new angular.module('myApp', ['Services']);
+var app = new angular.module('myApp', ['Services','try']);
 
 app.controller('Controller', function($scope, $timeout , githubService) {
 
     var timeout;
-
     $scope.$watch('repository', function(findRepo){
         if (findRepo) {
           if(timeout) $timeout.cancel(timeout);
 
           timeout = $timeout(function() {
-
               githubService.event(findRepo).success(function(data, status){
               console.log('success');
               console.log(data);
               $scope.events = data.items;
               $scope.total = "Search results :  " + data.items.length + " repositories retrieved";
               $scope.homepage = "Visit the Homepage";
-
+              $scope.results = "alert alert-success";
             });
           }, 350)
         }
@@ -41,6 +46,5 @@ app.controller('Controller', function($scope, $timeout , githubService) {
     $scope.title = "GitHub";
     $scope.searchTitle = "Search for a repository from GitHub";
     $scope.webname = "GitHub-Api";
-
 
 })

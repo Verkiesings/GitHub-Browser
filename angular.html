@@ -10,6 +10,7 @@
         <script src="Js/angular-route.js"></script>
         <script src="Js/dirPagination.js"></script>
         <script src="Js/index.js"></script>
+
     </head>
 
 <body>
@@ -34,11 +35,14 @@
   </div>
 </form>
 
-<div class="alert alert-success">
+<div class="{{results}}">
 <strong ng-model="total">{{total}}</strong>
 </div>
 
-<div class="col-xs-12 col-sm-6 col-md-6 text-center project" ng-repeat="event in events">
+
+
+<div class="col-xs-12 col-sm-6 col-md-6 text-center project" dir-paginate="event in events | itemsPerPage:2 ">
+
 <div class="panel panel-default">
   <div class="panel-heading">
       <h4><a style="text-decoration: none; cursor:pointer; color:rgba(0,0,0,.5)">{{event.name}}</a></h4> <br />
@@ -57,16 +61,20 @@
 </div>
 </div>
 
-
-
-
-
-
-
-
-
+<center><dir-pagination-controls max-size="5" direction-links="true" boundary-links="false">
+</dir-pagination-controls> </center>
 
 </div>
+
+
+
+
+
+
+
+
+
+
 <br / > <br /><br / > <br />
 <footer style="background: rgba(0,0,0,.7);" class="navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
