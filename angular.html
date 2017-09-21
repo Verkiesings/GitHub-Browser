@@ -26,6 +26,7 @@
 </nav>
 
 <div ng-controller="Controller" class="container">
+
  <h3>{{searchTitle}}</h3>
 
  <form>
@@ -35,8 +36,10 @@
   </div>
 </form>
 
-<div class="{{results}}">
+<div class="{{results}}" style="{{style}}">
 <strong ng-model="total">{{total}}</strong>
+<br />
+
 </div>
 
 
@@ -62,11 +65,9 @@
 </div>
 </div>
 
-
-
 </div>
 
-<center><dir-pagination-controls max-size="5" direction-links="true" boundary-links="false">
+<center><dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
 </dir-pagination-controls> </center>
 
 

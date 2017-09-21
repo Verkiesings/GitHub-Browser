@@ -39,6 +39,7 @@ app.controller('Controller', function($scope, $timeout , githubService) {
               $scope.total = "Search results :  " + data.items.length + " repositories retrieved";
               $scope.homepage = "Visit the Homepage";
               $scope.results = "alert alert-success";
+              $scope.style = "background:rgba(0,0,0,.08); color: rgba(0,0,0,.7); border:none;";
             });
           }, 350)
         }
