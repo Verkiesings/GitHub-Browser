@@ -36,10 +36,11 @@ app.controller('Controller', function($scope, $timeout , githubService) {
               console.log('success');
               console.log(data);
               $scope.events = data.items;
-              $scope.total = "Search results :  " + data.items.length + " repositories retrieved";
+              $scope.total = "Number of repositories retrieved : " + data.items.length;
               $scope.homepage = "Visit the Homepage";
               $scope.results = "alert alert-success";
-              $scope.style = "background:rgba(0,0,0,.08); color: rgba(0,0,0,.7); border:none;";
+              $scope.style = "background:#DFF2BF; color: #4F8A10; border:none; box-shadow: 1px 3px 5px rgba(0,0,0,.3);" +
+              "-webkit-box-shadow: 1px 3px 5px rgba(0,0,0,.3); -moz-box-shadow: 1px 3px 5px rgba(0,0,0,.3); ms-box-shadow: 1px 3px 5px rgba(0,0,0,.3); -o-box-shadow: 1px 3px 5px rgba(0,0,0,.3)"
             });
           }, 350)
         }

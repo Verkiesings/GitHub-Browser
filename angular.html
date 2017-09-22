@@ -1,7 +1,6 @@
 <html ng-app='myApp'>
-
     <head>
-    <title ng-controller="Controller">{{title}}</title>
+        <title ng-controller="Controller">{{title}}</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
          <script src="Js/jquery-3.2.1.js"></script>
         <script src="Js/bootstrap.min.js"></script>
@@ -10,7 +9,6 @@
         <script src="Js/angular-route.js"></script>
         <script src="Js/dirPagination.js"></script>
         <script src="Js/index.js"></script>
-
     </head>
 
 <body>
@@ -25,64 +23,56 @@
   </div>
 </nav>
 
-<div ng-controller="Controller" class="container">
-
+<div ng-controller="Controller" class="container ">
  <h3>{{searchTitle}}</h3>
-
- <form>
+  <form>
   <div class="form-group">
       <input type="text" ng-model="repository" class="form-control" id="formGroupExampleInput" placeholder="Search" autocomplete="off">
       <br />
   </div>
-</form>
-
+  </form>
 <div class="{{results}}" style="{{style}}">
-<strong ng-model="total">{{total}}</strong>
-<br />
+  <strong style="font-family:segoe UI;" ng-model="total">{{total}} </strong>
+  <br/>
 
 </div>
-
-
 
 <div class="col-xs-12 col-sm-6 col-md-6 text-center project" dir-paginate="event in events | itemsPerPage:2 ">
 
-<div class="panel panel-default">
-  <div class="panel-heading">
+  <div class="panel panel-default">
+    <div class="panel-heading">
       <h4><a style="text-decoration: none; cursor:pointer; color:rgba(0,0,0,.5)">{{event.name}}</a></h4> <br />
-  </div>
-  <br /> <br />
-  <p><strong style="color:rgba(0,0,0,.5);">Created At:</strong> {{event.created_at | date:'medium'}}</p>
-  <strong style="color:rgba(0,0,0,.5);"><p>Language : {{event.language}} </p></strong>
-  <br />
+    </div>
 
-  <a href="{{event.owner.html_url}}" target="_blank"><img ng-src="{{event.owner.avatar_url}}" class="img-thumbnail" width="200" height="200" ></img></a>
-  <br /><br />
-  <a  href="{{event.homepage}}" target="_blank" ng-model="homepage">{{homepage}}</a>
-  <br /><br />
-  <p><strong style="color:rgba(0,0,0,.5);">Updated At:</strong> {{event.updated_at | date:'medium'}}</p>
-  <a href="{{event.html_url}}" target="_blank" class="btn btn-info" role="button">Check out the repository</a>
-  <br /><br />
-</div>
-</div>
+    <br/><br/>
+    <p><strong style="color:rgba(0,0,0,.5);">Created At:</strong> {{event.created_at | date:'medium'}}</p>
+    <strong style="color:rgba(0,0,0,.5);"><p>Language : {{event.language}} </p></strong>
+    <br/>
+    <a href="{{event.owner.html_url}}" target="_blank"><img ng-src="{{event.owner.avatar_url}}" class="img-thumbnail" width="200" height="200" ></img></a>
+    <br/><br/>
+    <a  href="{{event.homepage}}" target="_blank" ng-model="homepage">{{homepage}}</a>
+    <br/><br/>
+    <p><strong style="color:rgba(0,0,0,.5);">Updated At:</strong> {{event.updated_at | date:'medium'}}</p>
+    <a href="{{event.html_url}}" target="_blank" class="btn btn-info" role="button">Check out the repository</a>
+    <br /><br />
 
 </div>
 
+</div>
+
+</div>
+
+
+<!-- Pagination -->
 <center><dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
 </dir-pagination-controls> </center>
+<!-- Pagination ends here -->
 
+<br/><br/><br/><br/>
 
-
-
-
-
-
-
-
-<br / > <br /><br / > <br />
 <footer style="background: rgba(0,0,0,.7);" class="navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
     <center><span style="color: ghostwhite;">All rights reserved &copy 2017 </span></center>
-
   </div>
 </footer>
 
